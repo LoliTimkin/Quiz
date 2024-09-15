@@ -1,0 +1,49 @@
+.result {
+    padding-top: 140px;
+    padding-bottom: 91px;
+    text-align: center;
+}
+
+.result .container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.result-image {
+    position: absolute;
+    top: 225px;
+    z-index: -1;
+}
+
+.result-title {
+    max-width: 588px;
+    margin-bottom: 60px;
+}
+
+.result-score {
+    background-image: url("../static/images/Result-image.png");
+    background-size: cover;
+    background-position: bottom;
+    width: 480px;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 158px;
+    text-align: center;
+    color: #fff;
+    font-family: "Museo Sans Cyrl Bold", sans-serif;
+}
+
+.answers {
+    margin-right: 120px;
+    margin-top: 80px;
+    margin-bottom: 11px;
+    font-weight: 400;
+    font-size: 17px;
+    text-align: right;
+    color: #6933dc;
+    text-decoration: none;
+}

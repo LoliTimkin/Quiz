@@ -1,0 +1,78 @@
+
+.answers-title {
+    margin-top: 20px;
+}
+
+.result-test-title {
+    display: inline-block;
+    font-size: 20px;
+    color: #dcdcf3;
+}
+
+.result-test-title-arrow {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.result-test-title-value {
+    display: inline-block;
+    font-size: 20px;
+    color: #6933dc;
+}
+
+h1 {
+    font-size: 54px;
+    color: #333;
+    font-family: "Museo Sans Cyrl Bold", sans-serif;
+}
+
+h1 span {
+    color: #6933dc;
+}
+
+.question-title {
+    font-size: 36px;
+    font-family: "Museo Sans Cyrl Bold", sans-serif;
+}
+
+.question-title span {
+    color: #6933dc;
+}
+
+.question-options {
+    margin-top: 58px;
+    min-height: 344px;
+}
+
+.question-option {
+    margin-bottom: 20px;
+    font-size: 20px;
+    display: flex;
+}
+
+.question-option label {
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #6933dc;
+    border-radius: 50%;
+    margin: 0 13px 0 0;
+    transform: translateY(2px);
+    display: grid;
+    place-content: center;
+    position: relative;
+    box-sizing: border-box;
+}
+
+input[type="radio"].green-radio-button {
+    border: 6px solid #5FDC33;
+}
+
+input[type="radio"].red-radio-button {
+    border: 6px solid #DC3333;
+}

@@ -15,9 +15,7 @@ export class Test {
         this.currentQuestionIndex = 1;
         this.userResult = [];
         this.routeParams = UrlManager.getQueryParams();
-
         this.init();
-
     }
 
         async init() {

@@ -43,7 +43,7 @@ export class Auth {
             })
             if(response && response.status === 200) {
                 const result = await response.json();
-                if(result && !result.message) {
+                if(result && !result.error) {
                     Auth.removeTokens();
                     localStorage.removeItem(Auth.userInfoKey);
                     return true;

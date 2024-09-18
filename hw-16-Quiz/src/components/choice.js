@@ -30,7 +30,7 @@ export class Choice {
         const userInfo = Auth.getUserInfo();
         if(userInfo) {
             try {
-                const result = await CustomHttp.request( 'http://localhost:3000/api/tests/result?userId=' + userInfo.userId)
+                const result = await CustomHttp.request( 'http://localhost:3000/api/tests/results?userId=' + userInfo.userId)
 
                 if (result) {
                     if (result.error) {

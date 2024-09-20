@@ -3,6 +3,7 @@ import {Choice} from "./components/choice.js";
 import {Result} from "./components/result.js";
 import {Test} from "./components/test.js";
 import {Auth} from "./services/auth.js";
+import {Answer} from "./components/answers.js";
 
 export class Router {
     constructor() {
@@ -76,6 +77,15 @@ export class Router {
                 styles: 'styles/form.css',
                 load: () => {
                     new Form('login')
+                }
+            },
+            {
+                route: '#/answers',
+                title: 'Правильные ответы',
+                template: 'templates/answers.html',
+                styles: 'styles/answers.css',
+                load: () => {
+                    new Answer()
                 }
             },
         ]

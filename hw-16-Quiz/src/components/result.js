@@ -11,9 +11,10 @@ export class Result  {
             //const testId = url.searchParams.get('id')
             const testId = this.routeParams.id;
             let nextPage = document.getElementById('answers-link');
-            nextPage.addEventListener('click', function() {
+            nextPage.addEventListener('click', function(event) {
                 //const userAnswersString = url.searchParams.get('userAnswers');
                 //location.href = 'answers.html?userAnswers=' + userAnswersString + '&id=' + testId;
+                event.preventDefault();
                 location.href = '#/answers?id=' + testId;
             })
 

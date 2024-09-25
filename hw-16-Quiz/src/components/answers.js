@@ -8,19 +8,12 @@ export class Answer {
         this.routeParams = UrlManager.getQueryParams();
         this.quizAnswers = null;
         this.quiz = null;
-        this.currentQuestionIndex = 0;
         this.contentElement = null;
-        this.userAnswers = [];
         this.init()
     }
 
     async init() {
-        //const url = new URL(location.href);
-        //const testId = url.searchParams.get('id');
-        //const testId = this.routeParams.id;
-        //const userAnswersString = url.searchParams.get('userAnswers');
-        //this.userAnswers = (userAnswersString.split(',')).map(str => +str);
-        //console.log(this.userAnswers);
+
         const userInfo = Auth.getUserInfo();
 
         if (!userInfo) {
@@ -53,8 +46,8 @@ export class Answer {
                     if (result.error) {
                         throw new Error(result.error);
                     }
-                    //this.quizAnswers = result;
-                    //console.log(result)
+                    this.quizAnswers = result;
+                    this.handlerUserAnswers();
                 }
             } catch (error) {
                 console.log(error)
@@ -66,11 +59,11 @@ export class Answer {
     handlerUserAnswers() {
 
         const testTitle = document.getElementById('result-test-title-value');
-        testTitle.innerText = this.quiz.name;
-        this.contentElement = document.getElementById('content');
-        this.contentElement.innerHTML = '';
+        testTitle.innerText = this.quizAnswers.test.name;
+        this.contentElement = document.getElementById('container-content');
+        //this.contentElement.innerHTML = '';
 
-        this.quiz.questions.forEach((question, index) => {
+        this.quizAnswers.test.questions.forEach((question, index) => {
             const questionTitleElement = document.createElement('div');
             questionTitleElement.className = 'question-title';
             questionTitleElement.innerHTML = '<span>Вопрос ' + (index + 1) + ':</span> '
@@ -89,10 +82,10 @@ export class Answer {
                 inputElement.setAttribute('type', 'radio');
                 inputElement.setAttribute('name', 'answer');
                 inputElement.setAttribute('value', answer.id);
-                if (answer.id === this.userAnswers[index] && this.userAnswers[index] !== this.quizRightAnswers[index]) {
+                if (answer.correct === false) {
                     inputElement.classList.add('red-radio-button');
                 }
-                if (answer.id === this.userAnswers[index] && this.userAnswers[index] === this.quizRightAnswers[index]) {
+                if (answer.correct === true) {
                     inputElement.classList.add('green-radio-button');
                 }
                 const labelElement = document.createElement('label');

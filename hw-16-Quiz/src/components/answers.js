@@ -15,6 +15,8 @@ export class Answer {
     async init() {
 
         const userInfo = Auth.getUserInfo();
+        const userWhoDone = document.getElementById('user-who-done');
+        userWhoDone.innerText = userInfo.fullName + ", " + userInfo.email;
 
         if (!userInfo) {
             location.href = '#/'
@@ -61,7 +63,6 @@ export class Answer {
         const testTitle = document.getElementById('result-test-title-value');
         testTitle.innerText = this.quizAnswers.test.name;
         this.contentElement = document.getElementById('container-content');
-        //this.contentElement.innerHTML = '';
 
         this.quizAnswers.test.questions.forEach((question, index) => {
             const questionTitleElement = document.createElement('div');
@@ -70,8 +71,7 @@ export class Answer {
                 + question.question;
             const optionsElement = document.createElement('div');
             optionsElement.className = 'question-options';
-            //console.log("Вопрос № " + index);
-            //console.log("Правильный ответ = " + this.quizRightAnswers[index])
+
             question.answers.forEach(answer => {
                 const optionElement = document.createElement('div');
                 optionElement.className = 'question-option';
